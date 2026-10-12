@@ -248,6 +248,46 @@ label.row.locked{color:#2e3747}
 .mg.s2 .bgt{background:#b3d27a;color:#10281a}
 .mg.s2 .bg{background:#f0f6e2;border-color:#c7dd9b}
 .mg.s2 .pl.t.on{background:#e0eebf;border-color:#46602a;color:#2f4219}
+.pl.m{--c:#2f3a4f;background:#fff;border:3px solid var(--c);color:var(--c);font-size:18px;padding:13px 14px;border-radius:12px}
+.pl.m small{color:var(--c);font-size:13px;font-weight:700}
+.pl.m.on{background:var(--c);border-color:var(--c);color:#fff}
+.pl.m.on small{color:#fff}
+.mpanel.m .mgt{font-size:14px;color:var(--text)}
+.pl.m{background:#fff;border:3px solid #333c4d;color:#333c4d;font-size:18px;padding:13px 14px;border-radius:12px}
+.pl.m small{color:#566175;font-size:13px;font-weight:700}
+.pl.m.on{background:#f58067;border-color:#f58067;color:#3a1209}
+.pl.m.on small{color:#3a1209}
+.mpanel.m .mgt{font-size:15px;padding:8px 12px;border-radius:8px;margin-bottom:8px}
+.mpanel.m .mg+.mg{margin-top:14px;padding-top:0;border-top:0}
+.pl.m{border-width:2px;font-size:14px;padding:6px 10px;border-radius:10px}
+.pl.m small{font-size:12px}
+.mpanel.m .mgt{font-size:19px;font-weight:700;padding:12px 14px;border-radius:10px;margin-bottom:10px}
+.pl.ts{font-size:16px;padding:10px 12px;flex:0 0 calc(50% - 4px)}
+.pl.ts.s0{border-color:#1b6b43;color:#124a2e}
+.pl.ts.s1{border-color:#17615c;color:#0f4440}
+.pl.ts.s2{border-color:#46602a;color:#2f4219}
+.pl.ts.s0.on{background:#c6ecd5}
+.pl.ts.s1.on{background:#c4e9e5}
+.pl.ts.s2.on{background:#e0eebf}
+.mgt.tsh{display:flex;align-items:center;gap:10px}
+.tsb{border:0;border-radius:999px;background:rgba(255,255,255,.22);color:#fff;font:inherit;font-size:13px;font-weight:700;padding:3px 10px}
+.mpanel.t .mgt.tsh2{background:#1b6b43}
+.pl.ts{padding:12px}
+.mpanel.m .mg{border:2px solid;border-radius:12px;overflow:hidden;padding:0 0 8px}
+.mpanel.m .mgt{border-radius:0;margin:0 0 8px}
+.mpanel.m .mps{padding:0 8px}
+.pl.m{font-size:16px;padding:10px 12px;border-width:2px;background:#fff}
+.pl.m small{font-size:12px;color:#566175}
+.pl.m.on small{color:inherit}
+.mpanel.m .mg.gm0{background:#fbeae6;border-color:#efb5a8}
+.mg.gm0 .pl.m{border-color:#c8402a;color:#8f2a18}
+.mg.gm0 .pl.m.on{background:#f6cfc6;border-color:#c8402a;color:#8f2a18}
+.mpanel.m .mg.gm1{background:#efe9fa;border-color:#cdbdee}
+.mg.gm1 .pl.m{border-color:#6d45b8;color:#46298a}
+.mg.gm1 .pl.m.on{background:#dccff3;border-color:#6d45b8;color:#46298a}
+.mpanel.m .mg.gm2{background:#e8ebf0;border-color:#b9c0cc}
+.mg.gm2 .pl.m{border-color:#2f3a4f;color:#1e2736}
+.mg.gm2 .pl.m.on{background:#cfd5df;border-color:#2f3a4f;color:#1e2736}
 </style>
 </head>
 <body>
@@ -307,52 +347,62 @@ const TIRES={
  ]
 };
 const OPTIONS=[
+ {id:'lift2',name:'ยก 2"',price:3500},
  {id:'lift',name:'ชุดยกปีกนก',price:16000},
  {id:'axle',name:'ต่อเพลา',price:5500},
  {id:'slide',name:'รถสไลด์',price:4000},
  {id:'shock',name:'โช๊ค PROFENDER',price:39500}
 ];
-const LIFT=['lift','axle','slide'];
+const LIFT=['lift','axle'];
+const GC={'B-CAB':'#c8402a','PREMIUM':'#6d45b8','OVERLAND':'#2f3a4f'};
 const MODELS=[
- {g:'B-CAB',v:'4X2',name:'TRAVO B-CAB 4X2',turn:-7000,locked:['lift','slide']},
- {g:'B-CAB',v:'4X4',name:'TRAVO B-CAB 4X4',turn:-7000,locked:['lift','axle','slide']},
- {g:'PREMIUM',v:'PREMIUM',name:'TRAVO PREMIUM',turn:-18000,locked:['lift','slide']},
- {g:'OVERLAND',v:'4X2',name:'TRAVO OVERLAND 4X2',turn:-22000,locked:['lift','slide']},
- {g:'OVERLAND',v:'4X4',name:'TRAVO OVERLAND 4X4',turn:-22000,locked:['lift','axle','slide']}
+ {g:'B-CAB',v:'4X2',name:'TRAVO B-CAB 4X2',turn:-7000,locked:['lift'],color:'#c8402a'},
+ {g:'B-CAB',v:'4X4',name:'TRAVO B-CAB 4X4',turn:-7000,locked:['lift','axle'],color:'#c76a0a'},
+ {g:'PREMIUM',v:'PREMIUM',name:'TRAVO PREMIUM',turn:-18000,locked:['lift'],color:'#6d45b8'},
+ {g:'OVERLAND',v:'4X2',name:'TRAVO OVERLAND 4X2',turn:-22000,locked:['lift'],color:'#b02a74'},
+ {g:'OVERLAND',v:'4X4',name:'TRAVO OVERLAND 4X4',turn:-22000,locked:['lift','axle'],color:'#2f3a4f'}
 ];
 // ====================================
 const fmt=n=>(n<0?'-':'')+Math.abs(n).toLocaleString('en-US');
 const $=id=>document.getElementById(id);
+let tsize=null, prevOpened=null;
 let cur=-1, picked=new Set(), wheel=null, tire=null, opened=null, customTire=null, draft={brand:'',size:'',price:''};
 const getW=()=>WHEELS.find(x=>x.id===wheel)||null;
 const tname=x=>x.size+' '+x.brand+' '+x.model+(x.desc?' ('+x.desc+')':'');
 const tireHTML=w=>{
-  const list=TIRES[w.rim]||[];
-  return '<div class="mpanel t">'+[...new Set(list.map(x=>x.size))].map((sz,si)=>{
-    const its=list.filter(x=>x.size===sz), bs=[...new Set(its.map(x=>x.brand))];
-    return `<div class="mg s${si%3}"><div class="mgt">${sz}</div>`
-     +bs.map(b=>`<div class="bg"><div class="bgt">${b}</div><div class="mps">${its.filter(x=>x.brand===b).map(x=>pl('t',x.id,x.model,fp(x.price)+(x.desc?' · '+x.desc:''),tire===x.id)).join('')}</div></div>`).join('')
-     +`<div class="mps"><button class="pl t add ${tire==='custom'&&customTire&&customTire.size===sz?'on':''}" data-k="t" data-id="custom" data-size="${sz}">+ ระบุเอง<small>ยี่ห้อ / ราคา</small></button></div></div>`;
-  }).join('')+'</div>';
+  const list=TIRES[w.rim]||[], sizes=[...new Set(list.map(x=>x.size))];
+  if(!tsize||!sizes.includes(tsize)){
+    return '<div class="mpanel t"><div class="mgt tsh2">เลือกขนาดยาง</div><div class="mps">'+sizes.map((sz,si)=>{
+      const its=list.filter(x=>x.size===sz), min=Math.min(...its.map(x=>x.price));
+      const on=(tire==='custom'&&customTire&&customTire.size===sz)||its.some(x=>x.id===tire);
+      return `<button class="pl ts s${si%3} ${on?'on':''}" data-k="ts" data-id="${sz}">${sz}</button>`;
+    }).join('')+'</div></div>';
+  }
+  const si=sizes.indexOf(tsize), its=list.filter(x=>x.size===tsize), bs=[...new Set(its.map(x=>x.brand))];
+  return `<div class="mpanel t"><div class="mg s${si%3}"><div class="mgt tsh"><button class="tsb" id="tszback">‹ ขนาดอื่น</button><span>${tsize}</span></div>`
+   +bs.map(b=>`<div class="bg"><div class="bgt">${b}</div><div class="mps">${its.filter(x=>x.brand===b).map(x=>pl('t',x.id,x.model,fp(x.price)+(x.desc?' · '+x.desc:''),tire===x.id)).join('')}</div></div>`).join('')
+   +`<div class="mps"><button class="pl t add ${tire==='custom'&&customTire&&customTire.size===tsize?'on':''}" data-k="t" data-id="custom" data-size="${tsize}">+ ระบุเอง<small>ยี่ห้อ / ราคา</small></button></div></div></div>`;
 };
 const getT=()=>{
-  if(tire==='custom'&&customTire)return {id:'custom',name:((customTire.size||'')+' '+(customTire.brand||'')).trim(),price:customTire.price};
-  const w=getW();const x=w?(TIRES[w.rim]||[]).find(y=>y.id===tire):null;return x?{id:x.id,name:tname(x),price:x.price}:null};
+  if(tire==='custom'&&customTire)return {id:'custom',name:((customTire.size||'')+' '+(customTire.brand||'')).trim(),price:customTire.price,size:customTire.size};
+  const w=getW();const x=w?(TIRES[w.rim]||[]).find(y=>y.id===tire):null;return x?{id:x.id,name:tname(x),price:x.price,size:x.size}:null};
 const esc=v=>String(v==null?'':v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const formHTML=()=>`<div class="fm"><label>ยี่ห้อ<input id="cb" type="text" value="${esc(draft.brand)}" placeholder="พิมพ์ยี่ห้อยาง"></label><label>ขนาดยาง<input id="cs" type="text" value="${esc(draft.size)}"></label><label>ราคา (บาท)<input id="cp" type="number" inputmode="numeric" value="${esc(draft.price)}"></label><div id="cerr" class="cerr"></div><div class="btns"><button class="btn alt" id="tback">‹ กลับ</button><button class="btn" id="tok">ตกลง</button></div></div>`;
 
 function selectModel(i){
-  cur=i; picked=new Set(MODELS[i].locked); wheel=null; tire=null; opened=null; customTire=null;
+  cur=i; picked=new Set([...MODELS[i].locked,'slide']); wheel=null; tire=null; opened=null; customTire=null;
   render();
 }
 const fp=p=>p==null?'กดใส่ราคา':fmt(p);
-const pl=(k,id,label,sub,on,dis)=>`<button class="pl ${k} ${on?'on':''}" data-k="${k}" data-id="${id}" ${dis?'disabled':''}>${label}<small>${sub}</small></button>`;
-const panel=(k,groups)=>`<div class="mpanel ${k}">${groups.map(g=>`<div class="mg ${g.dis?'dis':''}"><div class="mgt">${g.t}</div><div class="mps">${g.items.join('')}</div></div>`).join('')}</div>`;
+const pl=(k,id,label,sub,on,dis,st)=>`<button class="pl ${k} ${on?'on':''}" data-k="${k}" data-id="${id}" ${dis?'disabled':''} style="${st||''}">${label}<small>${sub}</small></button>`;
+const panel=(k,groups)=>`<div class="mpanel ${k}">${groups.map(g=>`<div class="mg ${g.dis?'dis':''} ${g.cls||''}"><div class="mgt" ${g.c?`style="background:${g.c};color:#fff"`:''}>${g.t}</div><div class="mps">${g.items.join('')}</div></div>`).join('')}</div>`;
 const tg=(k,text,dis)=>`<button class="tg ${k}" data-t="${k}" ${dis?'disabled':''}><span>${text}</span><span>${opened===k?'▴':'▾'}</span></button>`;
 function render(){
   const m=MODELS[cur]||null, w=getW(), t=getT();
-  const mg=[...new Set(MODELS.map(x=>x.g))].map(g=>({t:'TRAVO '+g,items:MODELS.map((x,i)=>x.g===g?pl('m',i,x.v,'เทิร์น '+fmt(x.turn),i===cur):'').filter(Boolean)}));
-  const sv=(k,label,val,ph,dis)=>`<div class="sr2"><span class="sl">${label} :</span><button class="sv ${k} ${val?'':'empty'}" id="v-${k}" data-t="${k}" ${dis?'disabled':''}>${val||ph}</button></div>`;
+  if(opened==='t'&&prevOpened!=='t'&&prevOpened!=='tc'){tsize=t?t.size:null}
+  prevOpened=opened;
+  const mg=[...new Set(MODELS.map(x=>x.g))].map((g,gi)=>({t:'TRAVO '+g,c:GC[g],cls:'gm'+gi,items:MODELS.map((x,i)=>x.g===g?pl('m',i,x.v,'เทิร์น '+fmt(x.turn),i===cur):'').filter(Boolean)}));
+  const sv=(k,label,val,ph,dis,st)=>`<div class="sr2"><span class="sl">${label} :</span><button class="sv ${k} ${val?'':'empty'}" id="v-${k}" data-t="${k}" ${dis?'disabled':''} ${st?`style="${st}"`:''}>${val||ph}</button></div>`;
   $('models').innerHTML='<div class="selcard">'
    +sv('m','รุ่นรถ',m?m.name:'','แตะเพื่อเลือก')
    +sv('w','ล้อ',w?`${w.name} · ${fmt(w.price)}`:'',m?'แตะเพื่อเลือก':'เลือกรุ่นก่อน',!m)
@@ -363,8 +413,8 @@ function render(){
   const tgp=w?tireHTML(w):'';
   const row=o=>{const lk=LIFT.includes(o.id)||!m;
     return `<label class="row ${lk?'locked':''}"><input type="checkbox" data-k="o" data-id="${o.id}" ${picked.has(o.id)?'checked':''} ${lk?'disabled':''}><span class="n">${o.name}</span><span class="p">${fmt(o.price)}</span></label>`};
-  h+='<div class="sc"><div class="gh g2">🔒 รายการยก · ล็อกตามรุ่น (แก้ไม่ได้)</div>'+OPTIONS.filter(o=>LIFT.includes(o.id)).map(row).join('')+'</div>';
-  h+='<div class="sc"><div class="gh g3">รายการเสริม</div>'+OPTIONS.filter(o=>!LIFT.includes(o.id)).map(row).join('')+'</div>';
+  h+='<div class="sc"><div class="gh g2">รายการยก · 🔒 ชุดยกปีกนก/ต่อเพลา ล็อกตามรุ่น</div>'+OPTIONS.filter(o=>o.id==='lift2'||LIFT.includes(o.id)).map(row).join('')+'</div>';
+  h+='<div class="sc"><div class="gh g3">รายการเสริม</div>'+OPTIONS.filter(o=>o.id!=='lift2'&&!LIFT.includes(o.id)).map(row).join('')+'</div>';
   $('list').innerHTML=h;
   const pops={m:['เลือกรุ่น',()=>panel('m',mg)],w:['เลือกล้อ',()=>panel('w',wg)],t:['เลือกยาง · ขอบ '+(w?w.rim:'')+'"',()=>tgp+'<div class="leg">WL = ตัวอักษรขาว · BL = ตัวอักษรดำ</div>'],tc:['ระบุยางเอง',formHTML]};
   if(opened){$('pt').textContent=pops[opened][0];$('pb').innerHTML=pops[opened][1]();$('pop').firstElementChild.className='sheet '+(opened==='tc'?'t':opened);$('pop').classList.add('show');
@@ -396,9 +446,10 @@ document.addEventListener('click',e=>{
   const p=e.target.closest('.pl'), g=e.target.closest('.tg,.sv');
   if(e.target.id==='pprev'||e.target.id==='pnext'){
     const st=['m','w','t'], i=st.indexOf(opened);
-    if(e.target.id==='pprev'){if(i>0)opened=st[i-1]}else{opened=i<2?st[i+1]:null}
+    if(e.target.id==='pprev'){if(opened==='t'&&tsize){tsize=null}else if(i>0)opened=st[i-1]}else{opened=i<2?st[i+1]:null}
     render();return
   }
+  if(e.target.id==='tszback'){tsize=null;render();return}
   if(e.target.id==='tback'){opened='t';render();return}
   if(e.target.id==='tok'){
     const b=$('cb').value.trim(), z=$('cs').value.trim(), pv=$('cp').value;
@@ -408,6 +459,7 @@ document.addEventListener('click',e=>{
   }
   if(p&&!p.disabled){
     const k=p.dataset.k, id=p.dataset.id;
+    if(k==='ts'){tsize=id;render();return}
     if(k==='m'){if(+id===cur){opened='w';render();return}selectModel(+id);opened='w';render();return}
     if(k==='w'){if(wheel===id){opened='t';render();return}wheel=id;const rt=TIRES[getW().rim]||[];tire=rt.length===1?rt[0].id:null;opened=tire?null:'t';render();return}
     if(k==='t'){
@@ -423,6 +475,11 @@ document.addEventListener('click',e=>{
 $('list').addEventListener('change',e=>{
   if(e.target.dataset.k!=='o')return;
   const id=e.target.dataset.id;
+  if(id==='lift2'){
+    if(e.target.checked){picked.add('lift2');LIFT.forEach(i=>picked.delete(i))}
+    else{picked.delete('lift2');MODELS[cur].locked.forEach(i=>picked.add(i))}
+    render();return
+  }
   if(LIFT.includes(id)){e.target.checked=picked.has(id);return}
   e.target.checked?picked.add(id):picked.delete(id);
   calc();
@@ -438,7 +495,7 @@ $('sum').onclick=()=>{
    +`<div class="sr"><span>รวมรายการ</span><b>${fmt(sub)}</b></div>`
    +`<div class="sr neg"><span>เทิร์น</span><b>${fmt(m.turn)}</b></div>`
    +`<div class="sr t"><span>สุทธิ</span><span>${fmt(sub+m.turn)}</span></div>`;
-  text=m.name+'\n'+items.map(o=>`- ${o.name} = ${fmt(o.price)} บาท`).join('\n')
+  text=m.name+'\n'+items.map(o=>`- ${o.name}\n✅ ${fmt(o.price)} บาท`).join('\n')
    +`\n--------------------------------\nรวม ${fmt(sub)} บาท\nเทิร์น ${fmt(m.turn)} บาท\n==================\nสุทธิ ${fmt(sub+m.turn)} บาท\n==================`;
   $('modal').classList.add('show');
 };
