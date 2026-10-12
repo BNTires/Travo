@@ -6,7 +6,7 @@
 <title>Price List TRAVO</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#e6e8ec;--card:#fff;--text:#0b0f14;--muted:#4b5563;--line:#b8bec7;--accent:#e11d48;color-scheme:light;--lock:#fbdde4;--neg:#dc2626;--onacc:#fff;
+:root{--bg:#e9edf2;--card:#ffffff;--text:#1c2430;--muted:#566175;--line:#c3cad4;--accent:#23864f;color-scheme:light;--lock:#d9f3e3;--neg:#d0452a;--onacc:#fff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}
 
@@ -20,17 +20,17 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:'Sarabun',syste
 h1{font-size:17px;margin:0;padding:10px 12px 2px}
 .sec{padding:8px 12px 0;color:var(--muted);font-size:12px;font-weight:600}
 .models{display:flex;gap:8px;overflow-x:auto;padding:6px 12px}
-.chip{flex:none;border:2px solid #9aa1ab;background:var(--card);color:var(--text);border-radius:10px;padding:5px 9px;font:inherit;font-size:13px;text-align:left}
+.chip{flex:none;border:2px solid #9aa4b2;background:var(--card);color:var(--text);border-radius:10px;padding:5px 9px;font:inherit;font-size:13px;text-align:left}
 .chip small{display:block;color:var(--neg);font-size:11px}
 .chip.on{border-color:var(--accent);background:var(--accent);color:var(--onacc)}
 .chip.on small{color:var(--onacc);opacity:.9}
 .list{margin:6px 12px}
-.sc{margin:0 0 12px;background:var(--card);border:2px solid #9aa1ab;border-radius:12px;overflow:hidden}
+.sc{margin:0 0 12px;background:var(--card);border:2px solid #9aa4b2;border-radius:12px;overflow:hidden}
 label.row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);cursor:pointer}
 label.row:last-child{border-bottom:0}
-label.row.locked{cursor:default;background:#dfe2e7;color:#374151}
+label.row.locked{cursor:default;background:#dde1e8;color:#2e3747}
 .wh,.wr{display:grid;grid-template-columns:32px 1fr 1fr 62px;align-items:stretch}
-.wh{background:#f0f1f4;color:var(--text);font-size:12px;font-weight:700;border-bottom:2px solid var(--line)}
+.wh{background:#efe8d9;color:var(--text);font-size:12px;font-weight:700;border-bottom:2px solid var(--line)}
 .wh span{padding:5px 6px;border-left:1px solid var(--line)}
 .wh span:first-child{border:0}
 .wr{border-bottom:1px solid var(--line);cursor:pointer}
@@ -69,7 +69,7 @@ label.row.locked{cursor:default;background:#dfe2e7;color:#374151}
 .bar .c b{font-size:13px;font-weight:600}
 .bar .c.n b{font-size:18px;font-weight:700}
 .bar .btn{flex:none;width:auto;grid-column:auto;background:#fff;color:var(--accent);border-radius:999px;padding:9px 16px;font-size:14px}
-.bar{background:var(--card);color:var(--text);border:2px solid #9aa1ab;padding:7px 7px 7px 14px}
+.bar{background:var(--card);color:var(--text);border:2px solid #9aa4b2;padding:7px 7px 7px 14px}
 .bar .c small{color:var(--muted);opacity:1;font-weight:600}
 .bar .c b{color:var(--text)}
 .bar .c:nth-child(2) b{color:var(--neg)}
@@ -79,6 +79,175 @@ label.row.locked{cursor:default;background:#dfe2e7;color:#374151}
 .bar .btn{flex:none;display:flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:999px;padding:5px 5px 5px 16px;text-align:center}
 .bar .btn b{display:inline;font-size:18px;font-weight:700;line-height:1}
 .bar .btn .go{background:#fff;color:var(--accent);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700}
+.hint{padding:14px 12px;color:var(--muted);font-size:13px}
+.models select{width:100%;font:inherit;font-size:15px;font-weight:600;padding:10px 12px;border:2px solid #9aa4b2;border-radius:10px;background:var(--card);color:var(--text)}
+.wg{display:grid;grid-template-columns:1fr 1fr}
+.wcol+.wcol{border-left:2px solid var(--line)}
+.wch{padding:6px 10px;background:#efe8d9;font-size:12px;font-weight:700;border-bottom:2px solid var(--line)}
+.wo{display:flex;align-items:center;gap:8px;padding:10px;border-bottom:1px solid var(--line);cursor:pointer}
+.wo input{width:20px;height:20px;flex:none;accent-color:var(--accent)}
+.wo .wn{display:block;font-size:13px;font-weight:600}
+.wo b{display:block;font-size:14px}
+.sc.wsc{border-color:var(--accent)}
+.wsc label.wo:has(input:checked){background:var(--lock)}
+.gh.g4{background:#0f766e}
+.sc.tr{border-color:#0f766e}
+.sc.tr input{accent-color:#0f766e}
+.sc.tr label:has(input:checked){background:#d4efeb}
+.gh.err{background:#991b1b;box-shadow:inset 0 0 0 3px #fff}
+.models select{appearance:none;-webkit-appearance:none;background:var(--accent) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 12px center;color:#fff;border-color:var(--accent);padding-right:36px}
+.gh.g1{background:#facc15;color:#1f1a00}
+.sc.wsc{border-color:#ca8a04}
+.wo input{accent-color:#ca8a04}
+.wsc label.wo:has(input:checked){background:#fef3c7}
+.gh.err{background:#991b1b;color:#fff;box-shadow:inset 0 0 0 3px #fff}
+.models{display:block;overflow:visible;padding:8px 12px}
+.msel{width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--accent);color:#fff;border:2px solid var(--accent);border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;font-weight:600}
+.mpanel{margin-top:6px;background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:8px 10px}
+.mg+.mg{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.mgt{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px}
+.mps{display:flex;gap:8px;flex-wrap:wrap}
+.mp{flex:0 0 calc(50% - 4px);border:2px solid #9aa4b2;background:var(--card);color:var(--text);border-radius:10px;padding:6px 10px;font:inherit;font-size:14px;font-weight:600;text-align:left}
+.mp small{display:block;color:var(--neg);font-size:11px}
+.mp.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.mp.on small{color:#fff}
+.wbody{padding:8px 10px}
+.wp{flex:0 0 calc(50% - 4px);border:2px solid #9aa4b2;background:var(--card);color:var(--text);border-radius:10px;padding:6px 10px;font:inherit;font-size:14px;font-weight:600;text-align:left}
+.wp small{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.wp.on{background:#fef3c7;border-color:#ca8a04;color:#713f12}
+.wp.on small{color:#713f12}
+.mp.on{background:color-mix(in srgb,var(--accent) 13%,var(--card));border-color:var(--accent);color:var(--accent)}
+.mp.on small{color:var(--neg)}
+.tg{width:100%;display:flex;justify-content:space-between;align-items:center;border:2px solid;border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;font-weight:600;text-align:left}
+.tg.m{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tg.w{background:#facc15;color:#1f1a00;border-color:#ca8a04}
+.tg.t{background:#0f766e;color:#fff;border-color:#0f766e}
+.tg:disabled{background:#dde1e8;color:#5b6678;border-color:#9aa4b2}
+.pkb{padding:8px 10px}
+.mpanel.w{border-color:#ca8a04}
+.mpanel.t{border-color:#0f766e}
+.pl{flex:0 0 calc(50% - 4px);border:2px solid #9aa4b2;background:var(--card);color:var(--text);border-radius:10px;padding:6px 10px;font:inherit;font-size:14px;font-weight:600;text-align:left}
+.pl small{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.pl.m small{color:var(--neg)}
+.pl.m.on{background:color-mix(in srgb,var(--accent) 13%,var(--card));border-color:var(--accent);color:var(--accent)}
+.pl.w.on{background:#fef3c7;border-color:#ca8a04;color:#713f12}
+.pl.w.on small{color:#713f12}
+.pl.t.on{background:#d4efeb;border-color:#0f766e;color:#0f4f49}
+.pl.t.on small{color:#0f4f49}
+.pl:disabled{background:#e4e8ee;color:#7d8798;cursor:not-allowed}
+.mg.dis{opacity:.5}
+.gh.g1,.gh.g3,.gh.g4{background:#1f2937;color:#fff}
+.gh.g2{background:#5b6678;color:#fff}
+.gh.err{background:#991b1b;color:#fff;box-shadow:inset 0 0 0 3px #fff}
+.sc,.sc.wsc,.sc.tr{border-color:#9aa4b2}
+.tg.m,.tg.w,.tg.t{background:var(--card);color:var(--text);border-color:#9aa4b2}
+.tg:disabled{background:#dde1e8;color:#5b6678;border-color:#c3cad4}
+.mpanel,.mpanel.w,.mpanel.t{border-color:#9aa4b2}
+.pl.m.on,.pl.w.on,.pl.t.on{background:color-mix(in srgb,var(--accent) 13%,var(--card));border-color:var(--accent);color:var(--accent)}
+.pl small,.pl.m small,.pl.w.on small,.pl.t.on small,.pl.m.on small{color:var(--muted)}
+.gh.g1{background:#9a6a14;color:#fff}
+.gh.g4{background:#5b6636;color:#fff}
+.gh.g3{background:#4a3b2c;color:#fff}
+.gh.g2{background:#5b6678;color:#fff}
+.gh.err{background:#8f2d1b;color:#fff;box-shadow:inset 0 0 0 3px #fff}
+.sc.wsc,.mpanel.w{border-color:#c9a45c}
+.sc.tr,.mpanel.t{border-color:#8f9a63}
+.pl.w.on{background:#f3e5c4;border-color:#9a6a14;color:#6b4a0c}
+.pl.t.on{background:#e3e8d0;border-color:#5b6636;color:#3e4724}
+.gh.g1{background:#7a4f0a}
+.gh.g4{background:#3f4a1f}
+.gh.g3{background:#2e2318}
+.gh.g2{background:#5b6678}
+.gh.err{background:#7f1d0f;color:#fff;box-shadow:inset 0 0 0 3px #fff}
+.sc.wsc,.mpanel.w{border-color:#7a4f0a}
+.sc.tr,.mpanel.t{border-color:#3f4a1f}
+.sc.wsc,.sc.tr{border-width:2px}
+.pl.m.on{background:color-mix(in srgb,var(--accent) 22%,var(--card));border-color:var(--accent);color:#6e2a0f}
+.pl.w.on{background:#ecd49a;border-color:#7a4f0a;color:#4d3004}
+.pl.t.on{background:#cfd9a8;border-color:#3f4a1f;color:#2a3213}
+.pl.on{box-shadow:inset 0 0 0 1px currentColor}
+.pl.m.on small,.pl.w.on small,.pl.t.on small{color:inherit}
+.pl{font-weight:700}
+.row .n{font-weight:700}
+label.row.locked{color:#2e3747}
+.gh.g1{background:#377cfa;color:#fff}
+.gh.g4{background:#65cc8a;color:#10281a}
+.gh.g3{background:#333c4d;color:#fff}
+.gh.g2{background:#6b7587;color:#fff}
+.gh.err{background:#d0452a;color:#fff;box-shadow:inset 0 0 0 3px #fff}
+.sc.wsc,.mpanel.w{border-color:#377cfa}
+.sc.tr,.mpanel.t{border-color:#65cc8a}
+.pl.m.on{background:#dfe3ea;border-color:#333c4d;color:#333c4d}
+.pl.w.on{background:#dce8ff;border-color:#377cfa;color:#1b4db3}
+.pl.t.on{background:#d9f3e3;border-color:#3aa86a;color:#1c6b40}
+.bar{border-color:#9aa4b2}
+.bar .btn{background:#65cc8a;color:#10281a}
+.bar .btn .go{background:#333c4d;color:#fff}
+.bar .c:nth-child(2) b{color:#d0452a}
+label.row.locked{color:#2e3747}
+#pb{margin:10px 0 4px}
+#pb .mpanel{border:0;padding:0;margin:0;background:none}
+#pop .sheet.m{border-top:6px solid #333c4d}
+#pop .sheet.w{border-top:6px solid #377cfa}
+#pop .sheet.t{border-top:6px solid #65cc8a}
+.fm label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px}
+.fm input{display:block;width:100%;margin-top:3px;font:inherit;font-size:16px;padding:9px 10px;border:2px solid #9aa4b2;border-radius:10px;background:#fff;color:var(--text)}
+.cerr{color:var(--neg);font-size:13px;min-height:16px;margin-bottom:6px}
+.fm .btn{width:100%;background:#65cc8a;color:#10281a}
+.pl.add{border-style:dashed}
+.models{padding:8px 12px}
+.selcard{background:var(--card);border:2px solid #9aa4b2;border-radius:12px;padding:4px 12px}
+.sr2{display:flex;align-items:center;gap:10px;padding:7px 0}
+.sr2+.sr2{border-top:1px solid var(--line)}
+.sl{flex:none;width:56px;font-weight:700;font-size:14px;color:var(--text)}
+.sv{flex:1;min-width:0;display:flex;justify-content:space-between;align-items:center;gap:6px;border:0;border-radius:10px;padding:9px 12px;font:inherit;font-size:14px;font-weight:700;text-align:left}
+.sv::after{content:'▾';font-size:12px;flex:none}
+.sv.m{background:#333c4d;color:#fff}
+.sv.w{background:#377cfa;color:#fff}
+.sv.t{background:#65cc8a;color:#10281a}
+.sv.empty{background:#e9edf2;color:#566175;border:2px dashed #9aa4b2;padding:7px 10px}
+.sv:disabled{background:#e9edf2;color:#7d8798;border:2px dashed #c3cad4;padding:7px 10px}
+.sv.err{background:#d0452a;color:#fff;border:0;box-shadow:inset 0 0 0 3px #fff}
+.sv.m{background:#f58067;color:#3a1209}
+#pop .sheet.m{border-top:6px solid #f58067}
+.pl.m.on{background:#fde2db;border-color:#f58067;color:#8a2a14}
+.sv.m.empty{background:#fde2db;color:#a0523f;border:2px solid #f9bfb1;padding:7px 10px}
+.sv.w.empty{background:#dce8ff;color:#3b64b8;border:2px solid #b4cdfb;padding:7px 10px}
+.sv.t.empty{background:#d9f3e3;color:#2f7a50;border:2px solid #aee3c4;padding:7px 10px}
+.sv.empty:disabled{opacity:.55}
+.sv.m.err,.sv.w.err,.sv.t.err{background:#d0452a;color:#fff;border:2px solid #d0452a;opacity:1}
+.ph{display:flex;justify-content:space-between;align-items:center}
+.x{border:0;background:#e9edf2;color:var(--text);width:32px;height:32px;border-radius:50%;font-size:15px;font-weight:700;flex:none}
+.stp{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#7d8798;margin:6px 0 2px}
+.stp i{font-style:normal}
+.stp .on{color:var(--text);background:#e9edf2;border-radius:999px;padding:2px 10px}
+#pnav .btn{flex:1}
+#pnext{background:#333c4d;color:#fff}
+.btn:disabled{opacity:.4}
+.leg{margin-top:10px;font-size:12px;color:var(--muted)}
+.pl{word-break:break-word}
+.fm .btns .btn{flex:1;width:auto}
+.fm .btns .btn.alt{background:#e9edf2;color:var(--text)}
+.bg{margin:6px 0 8px}
+.bgt{font-size:12px;font-weight:700;color:var(--text);margin:0 0 4px;padding-left:6px;border-left:3px solid #65cc8a}
+.mpanel.t .mgt{background:#333c4d;color:#fff;padding:6px 10px;border-radius:8px;font-size:13px;margin-bottom:8px}
+.mpanel.t .mg+.mg{margin-top:16px;padding-top:0;border-top:0}
+.bg{background:#eefaf3;border:2px solid #aee3c4;border-radius:12px;margin:0 0 8px;padding:0 0 8px;overflow:hidden}
+.bgt{background:#65cc8a;color:#10281a;font-size:13px;font-weight:700;padding:5px 10px;margin:0 0 8px;border-left:0}
+.bg .mps{padding:0 8px}
+.bg .pl:not(.on){background:#fff}
+.mpanel.t .mg.s0 .mgt{background:#1b6b43;color:#fff}
+.mg.s0 .bgt{background:#7fd4a2;color:#10281a}
+.mg.s0 .bg{background:#e8f7ee;border-color:#9ad9b6}
+.mg.s0 .pl.t.on{background:#c6ecd5;border-color:#1b6b43;color:#124a2e}
+.mpanel.t .mg.s1 .mgt{background:#17615c;color:#fff}
+.mg.s1 .bgt{background:#7cd0c8;color:#10281a}
+.mg.s1 .bg{background:#e4f5f3;border-color:#98d3cd}
+.mg.s1 .pl.t.on{background:#c4e9e5;border-color:#17615c;color:#0f4440}
+.mpanel.t .mg.s2 .mgt{background:#46602a;color:#fff}
+.mg.s2 .bgt{background:#b3d27a;color:#10281a}
+.mg.s2 .bg{background:#f0f6e2;border-color:#c7dd9b}
+.mg.s2 .pl.t.on{background:#e0eebf;border-color:#46602a;color:#2f4219}
 </style>
 </head>
 <body>
@@ -100,66 +269,169 @@ label.row.locked{cursor:default;background:#dfe2e7;color:#374151}
   <div class="btns"><button class="btn alt" id="copy">คัดลอก</button><button class="btn" id="close">ปิด</button></div>
 </div></div>
 
+<div class="modal" id="pop"><div class="sheet"><div class="ph"><h2 id="pt"></h2><button class="x" id="pcl" aria-label="ปิด">✕</button></div><div class="stp" id="pst"></div><div id="pb"></div><div class="btns" id="pnav"><button class="btn alt" id="pprev">‹ ก่อนหน้า</button><button class="btn" id="pnext">ถัดไป ›</button></div></div></div>
+
 <script>
 // ===== ข้อมูล: แก้ราคาได้ที่นี่ =====
+// ล้อ: rim = ขนาดขอบ (18 หรือ 20) ใช้จับคู่กับยางที่ใส่ได้
+const WHEELS=[
+ {id:'w1',name:'ขอบ 9"X18"+0',rim:18,price:15000},
+ {id:'w2',name:'ขอบ 9.5"X20"+0',rim:20,price:15000},
+ {id:'w3',name:'ขอบ 10"X20"-24',rim:20,price:22000}
+];
+// ยาง: แยกตามขนาดขอบ (ขอบ 18 มี 1 ตัวเลือก, ขอบ 20 มี 2 ตัวเลือก) เพิ่ม/แก้ข้อมูลยางได้ที่นี่
+const TIRES={
+ 18:[
+  {id:'t1',size:'265/60R18',brand:'DCENTI',model:'AT',price:15000,desc:''},
+  {id:'t2',size:'265/60R18',brand:'DCENTI',model:'RT',price:17000,desc:''},
+  {id:'t3',size:'265/60R18',brand:'TOYO',model:'OPAT3',price:28000,desc:''},
+  {id:'t4',size:'265/60R18',brand:'TOYO',model:'OPRT',price:28000,desc:''},
+  {id:'t5',size:'265/60R18',brand:'BF GOODRICH',model:'KO3',price:34000,desc:'WL'},
+  {id:'t6',size:'265/65R18',brand:'DCENTI',model:'AT',price:15000,desc:''},
+  {id:'t7',size:'265/65R18',brand:'DCENTI',model:'RT',price:17000,desc:''},
+  {id:'t8',size:'265/65R18',brand:'TOYO',model:'OPAT3',price:28000,desc:''},
+  {id:'t9',size:'265/65R18',brand:'BF GOODRICH',model:'KO3',price:36000,desc:'WL'}
+ ],
+ 20:[
+  {id:'t10',size:'265/50R20',brand:'DCENTI',model:'AT',price:15000,desc:''},
+  {id:'t11',size:'265/50R20',brand:'DCENTI',model:'RT',price:18000,desc:''},
+  {id:'t12',size:'265/50R20',brand:'TOYO',model:'OPAT3',price:28000,desc:''},
+  {id:'t13',size:'265/50R20',brand:'TOYO',model:'OPRT',price:32000,desc:''},
+  {id:'t14',size:'275/55R20',brand:'DCENTI',model:'AT',price:17000,desc:''},
+  {id:'t15',size:'275/55R20',brand:'DCENTI',model:'RT',price:20000,desc:''},
+  {id:'t16',size:'275/55R20',brand:'TOYO',model:'OPAT3',price:32000,desc:''},
+  {id:'t17',size:'275/55R20',brand:'TOYO',model:'OPRT',price:35000,desc:''},
+  {id:'t18',size:'275/55R20',brand:'BF GOODRICH',model:'KO3',price:48000,desc:'BL'},
+  {id:'t19',size:'33*12.5R20',brand:'ARISUN',model:'RT',price:22000,desc:'BL'},
+  {id:'t20',size:'33*12.5R20',brand:'OTANI',model:'SA2100',price:22000,desc:'WL'}
+ ]
+};
 const OPTIONS=[
- {id:'w1',name:'ล้อขอบ 9"X18"+0 + ยาง 265/65R18',price:42000,wl:'ขอบ 9"X18"+0',wp:17000,tl:'265/65R18',tp:25000},
- {id:'w2',name:'ล้อขอบ 9.5"X20"+0 + ยาง 275/55R20',price:33000,wl:'ขอบ 9.5"X20"+0',wp:15000,tl:'275/55R20',tp:18000},
- {id:'w3',name:'ล้อขอบ 10"X20"-24 + ยาง 33*12.5R20',price:42000,wl:'ขอบ 10"X20"-24',wp:22000,tl:'33*12.5R20',tp:20000},
  {id:'lift',name:'ชุดยกปีกนก',price:16000},
  {id:'axle',name:'ต่อเพลา',price:5500},
  {id:'slide',name:'รถสไลด์',price:4000},
  {id:'shock',name:'โช๊ค PROFENDER',price:39500}
 ];
+const LIFT=['lift','axle','slide'];
 const MODELS=[
- {name:'TRAVO B-CAB 4X2',turn:-7000,locked:['lift','slide']},
- {name:'TRAVO B-CAB 4X4',turn:-7000,locked:['lift','axle','slide']},
- {name:'TRAVO PREMIUM',turn:-18000,locked:['lift','slide']},
- {name:'TRAVO OVERLAND 4X2',turn:-22000,locked:['lift','slide']},
- {name:'TRAVO OVERLAND 4X4',turn:-22000,locked:['lift','axle','slide']}
+ {g:'B-CAB',v:'4X2',name:'TRAVO B-CAB 4X2',turn:-7000,locked:['lift','slide']},
+ {g:'B-CAB',v:'4X4',name:'TRAVO B-CAB 4X4',turn:-7000,locked:['lift','axle','slide']},
+ {g:'PREMIUM',v:'PREMIUM',name:'TRAVO PREMIUM',turn:-18000,locked:['lift','slide']},
+ {g:'OVERLAND',v:'4X2',name:'TRAVO OVERLAND 4X2',turn:-22000,locked:['lift','slide']},
+ {g:'OVERLAND',v:'4X4',name:'TRAVO OVERLAND 4X4',turn:-22000,locked:['lift','axle','slide']}
 ];
 // ====================================
 const fmt=n=>(n<0?'-':'')+Math.abs(n).toLocaleString('en-US');
 const $=id=>document.getElementById(id);
-let cur=0, picked=new Set();
-const WHEEL=['w1','w2','w3'];
-const gh=id=>id==='w1'?'<div class="sc"><div class="gh g1">ล้อ + ยาง · ต้องเลือก 1 รายการ</div>':id==='lift'?'</div><div class="sc"><div class="gh g2">🔒 รายการยก · ล็อกตามรุ่น (แก้ไม่ได้)</div>':id==='shock'?'</div><div class="sc"><div class="gh g3">รายการเสริม</div>':'';
+let cur=-1, picked=new Set(), wheel=null, tire=null, opened=null, customTire=null, draft={brand:'',size:'',price:''};
+const getW=()=>WHEELS.find(x=>x.id===wheel)||null;
+const tname=x=>x.size+' '+x.brand+' '+x.model+(x.desc?' ('+x.desc+')':'');
+const tireHTML=w=>{
+  const list=TIRES[w.rim]||[];
+  return '<div class="mpanel t">'+[...new Set(list.map(x=>x.size))].map((sz,si)=>{
+    const its=list.filter(x=>x.size===sz), bs=[...new Set(its.map(x=>x.brand))];
+    return `<div class="mg s${si%3}"><div class="mgt">${sz}</div>`
+     +bs.map(b=>`<div class="bg"><div class="bgt">${b}</div><div class="mps">${its.filter(x=>x.brand===b).map(x=>pl('t',x.id,x.model,fp(x.price)+(x.desc?' · '+x.desc:''),tire===x.id)).join('')}</div></div>`).join('')
+     +`<div class="mps"><button class="pl t add ${tire==='custom'&&customTire&&customTire.size===sz?'on':''}" data-k="t" data-id="custom" data-size="${sz}">+ ระบุเอง<small>ยี่ห้อ / ราคา</small></button></div></div>`;
+  }).join('')+'</div>';
+};
+const getT=()=>{
+  if(tire==='custom'&&customTire)return {id:'custom',name:((customTire.size||'')+' '+(customTire.brand||'')).trim(),price:customTire.price};
+  const w=getW();const x=w?(TIRES[w.rim]||[]).find(y=>y.id===tire):null;return x?{id:x.id,name:tname(x),price:x.price}:null};
+const esc=v=>String(v==null?'':v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const formHTML=()=>`<div class="fm"><label>ยี่ห้อ<input id="cb" type="text" value="${esc(draft.brand)}" placeholder="พิมพ์ยี่ห้อยาง"></label><label>ขนาดยาง<input id="cs" type="text" value="${esc(draft.size)}"></label><label>ราคา (บาท)<input id="cp" type="number" inputmode="numeric" value="${esc(draft.price)}"></label><div id="cerr" class="cerr"></div><div class="btns"><button class="btn alt" id="tback">‹ กลับ</button><button class="btn" id="tok">ตกลง</button></div></div>`;
 
 function selectModel(i){
-  cur=i; picked=new Set(MODELS[i].locked);
+  cur=i; picked=new Set(MODELS[i].locked); wheel=null; tire=null; opened=null; customTire=null;
   render();
 }
+const fp=p=>p==null?'กดใส่ราคา':fmt(p);
+const pl=(k,id,label,sub,on,dis)=>`<button class="pl ${k} ${on?'on':''}" data-k="${k}" data-id="${id}" ${dis?'disabled':''}>${label}<small>${sub}</small></button>`;
+const panel=(k,groups)=>`<div class="mpanel ${k}">${groups.map(g=>`<div class="mg ${g.dis?'dis':''}"><div class="mgt">${g.t}</div><div class="mps">${g.items.join('')}</div></div>`).join('')}</div>`;
+const tg=(k,text,dis)=>`<button class="tg ${k}" data-t="${k}" ${dis?'disabled':''}><span>${text}</span><span>${opened===k?'▴':'▾'}</span></button>`;
 function render(){
-  const m=MODELS[cur];
-  $('models').innerHTML=MODELS.map((x,i)=>`<button class="chip ${i===cur?'on':''}" data-i="${i}">${x.name}<small>เทิร์น ${fmt(x.turn)}</small></button>`).join('');
-  $('list').innerHTML=OPTIONS.map(o=>{
-    const lk=m.locked.includes(o.id)||['lift','axle','slide'].includes(o.id);
-    if(o.wl){const cell=(l,p)=>`<div class="c">${l}<b>${fmt(p)}</b></div>`;
-      return (o.id==='w1'?gh('w1')+'<div class="wh"><span></span><span>ล้อ</span><span>ยาง</span><span>รวม</span></div>':'')+`<label class="wr"><input type="radio" name="wheel" data-id="${o.id}" ${picked.has(o.id)?'checked':''}>${cell(o.wl,o.wp)}${cell(o.tl,o.tp)}<div class="c t"><b>${fmt(o.price)}</b></div></label>`;}
-    return gh(o.id)+`<label class="row ${lk?'locked':''}"><input type="${WHEEL.includes(o.id)?'radio':'checkbox'}" ${WHEEL.includes(o.id)?'name="wheel"':''} data-id="${o.id}" ${picked.has(o.id)?'checked':''} ${lk?'disabled':''}>
-    <span class="n">${o.name}</span><span class="p">${fmt(o.price)}${o.note?`<small>${o.note}</small>`:''}</span></label>`;
-  }).join('');
+  const m=MODELS[cur]||null, w=getW(), t=getT();
+  const mg=[...new Set(MODELS.map(x=>x.g))].map(g=>({t:'TRAVO '+g,items:MODELS.map((x,i)=>x.g===g?pl('m',i,x.v,'เทิร์น '+fmt(x.turn),i===cur):'').filter(Boolean)}));
+  const sv=(k,label,val,ph,dis)=>`<div class="sr2"><span class="sl">${label} :</span><button class="sv ${k} ${val?'':'empty'}" id="v-${k}" data-t="${k}" ${dis?'disabled':''}>${val||ph}</button></div>`;
+  $('models').innerHTML='<div class="selcard">'
+   +sv('m','รุ่นรถ',m?m.name:'','แตะเพื่อเลือก')
+   +sv('w','ล้อ',w?`${w.name} · ${fmt(w.price)}`:'',m?'แตะเพื่อเลือก':'เลือกรุ่นก่อน',!m)
+   +sv('t','ยาง',t?`${t.name} · ${fp(t.price)}`:'',w?'แตะเพื่อเลือก':'เลือกล้อก่อน',!w)
+   +'</div>';
+  const wg=[18,20].map(r=>({t:`ขอบ ${r}"`,items:WHEELS.filter(x=>x.rim===r).map(x=>pl('w',x.id,x.name.replace('ขอบ ',''),fmt(x.price),wheel===x.id))}));
+  let h='';
+  const tgp=w?tireHTML(w):'';
+  const row=o=>{const lk=LIFT.includes(o.id)||!m;
+    return `<label class="row ${lk?'locked':''}"><input type="checkbox" data-k="o" data-id="${o.id}" ${picked.has(o.id)?'checked':''} ${lk?'disabled':''}><span class="n">${o.name}</span><span class="p">${fmt(o.price)}</span></label>`};
+  h+='<div class="sc"><div class="gh g2">🔒 รายการยก · ล็อกตามรุ่น (แก้ไม่ได้)</div>'+OPTIONS.filter(o=>LIFT.includes(o.id)).map(row).join('')+'</div>';
+  h+='<div class="sc"><div class="gh g3">รายการเสริม</div>'+OPTIONS.filter(o=>!LIFT.includes(o.id)).map(row).join('')+'</div>';
+  $('list').innerHTML=h;
+  const pops={m:['เลือกรุ่น',()=>panel('m',mg)],w:['เลือกล้อ',()=>panel('w',wg)],t:['เลือกยาง · ขอบ '+(w?w.rim:'')+'"',()=>tgp+'<div class="leg">WL = ตัวอักษรขาว · BL = ตัวอักษรดำ</div>'],tc:['ระบุยางเอง',formHTML]};
+  if(opened){$('pt').textContent=pops[opened][0];$('pb').innerHTML=pops[opened][1]();$('pop').firstElementChild.className='sheet '+(opened==='tc'?'t':opened);$('pop').classList.add('show');
+    const steps=['m','w','t'], si=steps.indexOf(opened), has={m:!!m,w:!!w,t:!!t};
+    $('pnav').style.display=si<0?'none':'flex';
+    $('pst').innerHTML=si<0?'':steps.map((k,i)=>`<span class="${i===si?'on':''}">${['รุ่นรถ','ล้อ','ยาง'][i]}</span>`).join('<i>›</i>');
+    $('pprev').disabled=si<=0;
+    $('pnext').disabled=si<0?true:!has[opened];
+    $('pnext').textContent=si===2?'เสร็จสิ้น':'ถัดไป ›';
+  }
+  else $('pop').classList.remove('show');
   calc();
 }
-function calc(){
-  const m=MODELS[cur];
-  const sub=OPTIONS.filter(o=>picked.has(o.id)).reduce((s,o)=>s+o.price,0);
-  $('sub').textContent=fmt(sub);
-  $('turn').textContent=fmt(m.turn);
-  $('net').textContent=fmt(sub+m.turn);
+function chosen(){
+  const items=[], w=getW(), t=getT();
+  if(w)items.push({name:'ล้อ'+w.name,price:w.price});
+  if(t)items.push({name:'ยาง '+t.name,price:t.price||0});
+  OPTIONS.filter(o=>picked.has(o.id)).forEach(o=>items.push({name:o.name,price:o.price}));
+  return items;
 }
-$('models').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)selectModel(+b.dataset.i)});
+function calc(){
+  const m=MODELS[cur]||null;
+  const sub=chosen().reduce((s,o)=>s+o.price,0);
+  $('sub').textContent=fmt(sub);
+  $('turn').textContent=m?fmt(m.turn):'-';
+  $('net').textContent=fmt(sub+(m?m.turn:0));
+}
+document.addEventListener('click',e=>{
+  const p=e.target.closest('.pl'), g=e.target.closest('.tg,.sv');
+  if(e.target.id==='pprev'||e.target.id==='pnext'){
+    const st=['m','w','t'], i=st.indexOf(opened);
+    if(e.target.id==='pprev'){if(i>0)opened=st[i-1]}else{opened=i<2?st[i+1]:null}
+    render();return
+  }
+  if(e.target.id==='tback'){opened='t';render();return}
+  if(e.target.id==='tok'){
+    const b=$('cb').value.trim(), z=$('cs').value.trim(), pv=$('cp').value;
+    if(pv===''||!(parseFloat(pv)>=0)){$('cerr').textContent='ใส่ราคายางก่อน';return}
+    if(!b){$('cerr').textContent='ใส่ยี่ห้อยาง';return}
+    customTire={brand:b,size:z,price:parseFloat(pv)};tire='custom';opened=null;render();return
+  }
+  if(p&&!p.disabled){
+    const k=p.dataset.k, id=p.dataset.id;
+    if(k==='m'){if(+id===cur){opened='w';render();return}selectModel(+id);opened='w';render();return}
+    if(k==='w'){if(wheel===id){opened='t';render();return}wheel=id;const rt=TIRES[getW().rim]||[];tire=rt.length===1?rt[0].id:null;opened=tire?null:'t';render();return}
+    if(k==='t'){
+      if(id==='custom'){const sz=p.dataset.size||'', c=customTire&&customTire.size===sz?customTire:null;draft={brand:c?c.brand:'',size:sz,price:c?c.price:''};opened='tc';render();return}
+      const x=(TIRES[getW().rim]||[]).find(y=>y.id===id);
+      if(x&&x.price==null){draft={brand:'',size:x.name,price:''};opened='tc';render();return}
+      tire=id;customTire=null;opened=null;render();return
+    }
+  }
+  if(g){if(g.disabled)return;const k=g.dataset.t;opened=opened===k?null:k;render();return}
+  if(opened&&(e.target.id==='pop'||e.target.id==='pcl')){opened=null;render()}
+});
 $('list').addEventListener('change',e=>{
-  const id=e.target.dataset.id; if(!id)return;
-  if(MODELS[cur].locked.includes(id)){e.target.checked=true;return}
-  if(WHEEL.includes(id)){WHEEL.forEach(w=>picked.delete(w));picked.add(id);const g=document.querySelector('.gh');if(g)g.classList.remove('err');}else{e.target.checked?picked.add(id):picked.delete(id);}
+  if(e.target.dataset.k!=='o')return;
+  const id=e.target.dataset.id;
+  if(LIFT.includes(id)){e.target.checked=picked.has(id);return}
+  e.target.checked?picked.add(id):picked.delete(id);
   calc();
 });
 let text='';
 $('sum').onclick=()=>{
-  if(!WHEEL.some(w=>picked.has(w))){const g=document.querySelector('.gh');g.classList.add('err');g.scrollIntoView({behavior:'smooth',block:'center'});return}
+  if(cur<0||!getW()||!getT()){const g=$(cur<0?'v-m':(getW()?'v-t':'v-w'));g.classList.add('err');g.scrollIntoView({behavior:'smooth',block:'center'});return}
   const m=MODELS[cur];
-  const items=OPTIONS.filter(o=>picked.has(o.id));
+  const items=chosen();
   const sub=items.reduce((s,o)=>s+o.price,0);
   $('mt').textContent='สรุป '+m.name;
   $('mb').innerHTML=items.map(o=>`<div class="sr"><span>${o.name}</span><b>${fmt(o.price)}</b></div>`).join('')
@@ -180,7 +452,7 @@ $('copy').onclick=async()=>{
   setTimeout(()=>$('copy').textContent='คัดลอก',1500);
 };
 $('modal').addEventListener('click',e=>{if(e.target.id==='modal')$('modal').classList.remove('show')});
-selectModel(0);
+opened='m';render();
 </script>
 </body>
 </html>
