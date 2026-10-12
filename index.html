@@ -16,7 +16,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 :root[data-accent="rose"]{--accent:#e11d48}
 :root[data-accent="purple"]{--accent:#7c3aed}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Sarabun',system-ui,sans-serif;font-size:14px;padding-bottom:125px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Sarabun',system-ui,sans-serif;font-size:14px;padding-bottom:90px}
 h1{font-size:17px;margin:0;padding:10px 12px 2px}
 .sec{padding:8px 12px 0;color:var(--muted);font-size:12px;font-weight:600}
 .models{display:flex;gap:8px;overflow-x:auto;padding:6px 12px}
@@ -58,6 +58,27 @@ label.row.locked{cursor:default;background:#dfe2e7;color:#374151}
 .sr.t{border:0;font-size:21px;font-weight:700;padding-top:14px}
 .btns{display:flex;gap:8px;margin-top:12px}
 .btn.alt{background:var(--line);color:var(--text)}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:6px 12px calc(6px + env(safe-area-inset-bottom,0px))}
+.ln{gap:12px;line-height:1.3}
+.tot{flex-direction:column;align-items:flex-end;margin:0;font-size:22px;line-height:1.05}
+.tot span:first-child{font-size:11px;font-weight:600}
+.bar .btn{grid-column:1/-1;padding:8px;font-size:15px}
+.bar{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:8px;background:var(--accent);color:#fff;border:0;border-radius:16px;padding:8px 8px 8px 14px;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.bar .c{flex:1;min-width:0;line-height:1.15}
+.bar .c small{display:block;font-size:10.5px;opacity:.85}
+.bar .c b{font-size:13px;font-weight:600}
+.bar .c.n b{font-size:18px;font-weight:700}
+.bar .btn{flex:none;width:auto;grid-column:auto;background:#fff;color:var(--accent);border-radius:999px;padding:9px 16px;font-size:14px}
+.bar{background:var(--card);color:var(--text);border:2px solid #9aa1ab;padding:7px 7px 7px 14px}
+.bar .c small{color:var(--muted);opacity:1;font-weight:600}
+.bar .c b{color:var(--text)}
+.bar .c:nth-child(2) b{color:var(--neg)}
+.bar .btn{flex:1.4;background:var(--accent);color:#fff;border-radius:12px;padding:7px 14px;text-align:left}
+.bar .btn small{display:block;font-size:10.5px;font-weight:600;opacity:.9}
+.bar .btn b{display:block;font-size:19px;font-weight:700;line-height:1.15}
+.bar .btn{flex:none;display:flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:999px;padding:5px 5px 5px 16px;text-align:center}
+.bar .btn b{display:inline;font-size:18px;font-weight:700;line-height:1}
+.bar .btn .go{background:#fff;color:var(--accent);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700}
 </style>
 </head>
 <body>
@@ -68,10 +89,9 @@ label.row.locked{cursor:default;background:#dfe2e7;color:#374151}
 <div class="list" id="list"></div>
 
 <div class="bar">
-  <div class="ln"><span>รวมรายการ</span><b id="sub">0</b></div>
-  <div class="ln neg"><span>เทิร์น</span><b id="turn">0</b></div>
-  <div class="tot"><span>สุทธิ</span><span id="net">0</span></div>
-  <button class="btn" id="sum">สรุป</button>
+  <div class="c"><small>รวม</small><b id="sub">0</b></div>
+  <div class="c"><small>เทิร์น</small><b id="turn">0</b></div>
+  <button class="btn" id="sum"><b id="net">0</b><span class="go">สรุป</span></button>
 </div>
 
 <div class="modal" id="modal"><div class="sheet">
