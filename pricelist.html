@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Price List TRAVO</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--text:#1b1f24;--muted:#6b7280;--line:#e3e6ea;--accent:#e11d48;color-scheme:light;--lock:#fbdde4;--neg:#dc2626;--onacc:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+
+:root[data-accent="green"]{--accent:#16a34a}
+:root[data-accent="teal"]{--accent:#0d9488}
+:root[data-accent="orange"]{--accent:#ea580c}
+:root[data-accent="rose"]{--accent:#e11d48}
+:root[data-accent="purple"]{--accent:#7c3aed}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Sarabun',system-ui,sans-serif;font-size:17px;padding-bottom:150px}
+h1{font-size:19px;margin:0;padding:14px 16px 4px}
+.sec{padding:10px 16px 0;color:var(--muted);font-size:14px;font-weight:600}
+.models{display:flex;gap:8px;overflow-x:auto;padding:8px 16px}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:12px;padding:8px 12px;font:inherit;text-align:left}
+.chip small{display:block;color:var(--neg);font-size:13px}
+.chip.on{border-color:var(--accent);background:var(--accent);color:var(--onacc)}
+.chip.on small{color:var(--onacc);opacity:.9}
+.list{margin:6px 16px;background:var(--card);border-radius:14px;border:1px solid var(--line);overflow:hidden}
+label.row{display:flex;align-items:center;gap:12px;padding:14px;border-bottom:1px solid var(--line);cursor:pointer}
+label.row:last-child{border-bottom:0}
+label.row.locked{cursor:default;background:rgba(128,128,128,.18);color:var(--muted)}
+.wh,.wr{display:grid;grid-template-columns:40px 1fr 1fr 74px;align-items:stretch}
+.wh{background:var(--bg);color:var(--muted);font-size:13px;font-weight:600;border-bottom:1px solid var(--line)}
+.wh span{padding:6px 8px;border-left:1px solid var(--line)}
+.wh span:first-child{border:0}
+.wr{border-bottom:1px solid var(--line);cursor:pointer}
+.wr input{width:24px;height:24px;margin:auto;accent-color:var(--accent)}
+.wr .c{padding:10px 8px;border-left:1px solid var(--line);font-size:14px;line-height:1.3;display:flex;flex-direction:column;justify-content:center}
+.wr .c b{font-weight:400;margin-top:2px;font-size:12px;color:var(--muted)}
+.wr .c.t b{font-weight:700;font-size:19px;color:var(--text);margin:0}
+.wr:has(input:checked){background:var(--lock)}
+.gh{padding:10px 14px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:600;border-bottom:1px solid var(--line)}.gh.err{color:var(--neg)}
+.row input{width:26px;height:26px;flex:none;accent-color:var(--accent)}
+.row .n{flex:1;line-height:1.25}
+.row .p{font-weight:600;white-space:nowrap}
+.row .p small{display:block;color:var(--muted);font-weight:400;font-size:12px;text-align:right}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.ln{display:flex;justify-content:space-between;font-size:15px;color:var(--muted)}
+.ln.neg b{color:var(--neg)}
+.tot{display:flex;justify-content:space-between;align-items:center;margin:4px 0 8px;font-size:20px;font-weight:700}
+.btn{width:100%;border:0;border-radius:12px;background:var(--accent);color:var(--onacc);font:inherit;font-weight:700;padding:13px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:9}
+.modal.show{display:flex}
+.sheet{background:var(--card);width:100%;max-width:420px;max-height:85%;overflow:auto;border-radius:18px;padding:18px 16px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.sheet h2{margin:0 0 4px;font-size:19px}
+.sr{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.sr.neg{color:var(--neg)}
+.sr.t{border:0;font-size:21px;font-weight:700;padding-top:14px}
+.btns{display:flex;gap:8px;margin-top:12px}
+.btn.alt{background:var(--line);color:var(--text)}
+</style>
+</head>
+<body>
+<h1>Price List TRAVO</h1>
+<div class="sec">เลือกรุ่น</div>
+<div class="models" id="models"></div>
+<div class="sec">รายการ</div>
+<div class="list" id="list"></div>
+
+<div class="bar">
+  <div class="ln"><span>รวมรายการ</span><b id="sub">0</b></div>
+  <div class="ln neg"><span>เทิร์น</span><b id="turn">0</b></div>
+  <div class="tot"><span>สุทธิ</span><span id="net">0</span></div>
+  <button class="btn" id="sum">สรุป</button>
+</div>
+
+<div class="modal" id="modal"><div class="sheet">
+  <h2 id="mt"></h2>
+  <div id="mb"></div>
+  <div class="btns"><button class="btn alt" id="copy">คัดลอก</button><button class="btn" id="close">ปิด</button></div>
+</div></div>
+
+<script>
+// ===== ข้อมูล: แก้ราคาได้ที่นี่ =====
+const OPTIONS=[
+ {id:'w1',name:'ล้อขอบ 9"X18"+0 + ยาง 265/65R18',price:42000,wl:'ขอบ 9"X18"+0',wp:17000,tl:'265/65R18',tp:25000},
+ {id:'w2',name:'ล้อขอบ 9.5"X20"+0 + ยาง 275/55R20',price:33000,wl:'ขอบ 9.5"X20"+0',wp:15000,tl:'275/55R20',tp:18000},
+ {id:'w3',name:'ล้อขอบ 10"X20"-24 + ยาง 33*12.5R20',price:42000,wl:'ขอบ 10"X20"-24',wp:22000,tl:'33*12.5R20',tp:20000},
+ {id:'lift',name:'ชุดยกปีกนก',price:16000},
+ {id:'axle',name:'ต่อเพลา',price:5500},
+ {id:'slide',name:'รถสไลด์',price:4000},
+ {id:'shock',name:'โช๊ค PROFENDER',price:39500}
+];
+const MODELS=[
+ {name:'TRAVO B-CAB 4X2',turn:-7000,locked:['lift','slide']},
+ {name:'TRAVO B-CAB 4X4',turn:-7000,locked:['lift','axle','slide']},
+ {name:'TRAVO PREMIUM',turn:-18000,locked:['lift','slide']},
+ {name:'TRAVO OVERLAND 4X2',turn:-22000,locked:['lift','slide']},
+ {name:'TRAVO OVERLAND 4X4',turn:-22000,locked:['lift','axle','slide']}
+];
+// ====================================
+const fmt=n=>(n<0?'-':'')+Math.abs(n).toLocaleString('en-US');
+const $=id=>document.getElementById(id);
+let cur=0, picked=new Set();
+const WHEEL=['w1','w2','w3'];
+const gh=id=>id==='w1'?'<div class="gh">ล้อ + ยาง · ต้องเลือก 1 รายการ</div>':id==='lift'?'<div class="gh">รายการยก · ล็อกตามรุ่น (แก้ไม่ได้)</div>':id==='shock'?'<div class="gh">รายการเสริม</div>':'';
+
+function selectModel(i){
+  cur=i; picked=new Set(MODELS[i].locked);
+  render();
+}
+function render(){
+  const m=MODELS[cur];
+  $('models').innerHTML=MODELS.map((x,i)=>`<button class="chip ${i===cur?'on':''}" data-i="${i}">${x.name}<small>เทิร์น ${fmt(x.turn)}</small></button>`).join('');
+  $('list').innerHTML=OPTIONS.map(o=>{
+    const lk=m.locked.includes(o.id)||['lift','axle','slide'].includes(o.id);
+    if(o.wl){const cell=(l,p)=>`<div class="c">${l}<b>${fmt(p)}</b></div>`;
+      return (o.id==='w1'?gh('w1')+'<div class="wh"><span></span><span>ล้อ</span><span>ยาง</span><span>รวม</span></div>':'')+`<label class="wr"><input type="radio" name="wheel" data-id="${o.id}" ${picked.has(o.id)?'checked':''}>${cell(o.wl,o.wp)}${cell(o.tl,o.tp)}<div class="c t"><b>${fmt(o.price)}</b></div></label>`;}
+    return gh(o.id)+`<label class="row ${lk?'locked':''}"><input type="${WHEEL.includes(o.id)?'radio':'checkbox'}" ${WHEEL.includes(o.id)?'name="wheel"':''} data-id="${o.id}" ${picked.has(o.id)?'checked':''} ${lk?'disabled':''}>
+    <span class="n">${o.name}</span><span class="p">${fmt(o.price)}${o.note?`<small>${o.note}</small>`:''}</span></label>`;
+  }).join('');
+  calc();
+}
+function calc(){
+  const m=MODELS[cur];
+  const sub=OPTIONS.filter(o=>picked.has(o.id)).reduce((s,o)=>s+o.price,0);
+  $('sub').textContent=fmt(sub);
+  $('turn').textContent=fmt(m.turn);
+  $('net').textContent=fmt(sub+m.turn);
+}
+$('models').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)selectModel(+b.dataset.i)});
+$('list').addEventListener('change',e=>{
+  const id=e.target.dataset.id; if(!id)return;
+  if(MODELS[cur].locked.includes(id)){e.target.checked=true;return}
+  if(WHEEL.includes(id)){WHEEL.forEach(w=>picked.delete(w));picked.add(id);const g=document.querySelector('.gh');if(g)g.classList.remove('err');}else{e.target.checked?picked.add(id):picked.delete(id);}
+  calc();
+});
+let text='';
+$('sum').onclick=()=>{
+  if(!WHEEL.some(w=>picked.has(w))){const g=document.querySelector('.gh');g.classList.add('err');g.scrollIntoView({behavior:'smooth',block:'center'});return}
+  const m=MODELS[cur];
+  const items=OPTIONS.filter(o=>picked.has(o.id));
+  const sub=items.reduce((s,o)=>s+o.price,0);
+  $('mt').textContent='สรุป '+m.name;
+  $('mb').innerHTML=items.map(o=>`<div class="sr"><span>${o.name}</span><b>${fmt(o.price)}</b></div>`).join('')
+   +`<div class="sr"><span>รวมรายการ</span><b>${fmt(sub)}</b></div>`
+   +`<div class="sr neg"><span>เทิร์น</span><b>${fmt(m.turn)}</b></div>`
+   +`<div class="sr t"><span>สุทธิ</span><span>${fmt(sub+m.turn)}</span></div>`;
+  text=m.name+'\n'+items.map(o=>`- ${o.name} = ${fmt(o.price)} บาท`).join('\n')
+   +`\n--------------------------------\nรวม ${fmt(sub)} บาท\nเทิร์น ${fmt(m.turn)} บาท\n==================\nสุทธิ ${fmt(sub+m.turn)} บาท\n==================`;
+  $('modal').classList.add('show');
+};
+$('close').onclick=()=>$('modal').classList.remove('show');
+$('copy').onclick=async()=>{
+  let ok=false;
+  try{await navigator.clipboard.writeText(text);ok=true}catch(e){
+    try{const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();ok=document.execCommand('copy');t.remove()}catch(e2){}
+  }
+  $('copy').textContent=ok?'คัดลอกแล้ว ✓':'คัดลอกไม่ได้';
+  setTimeout(()=>$('copy').textContent='คัดลอก',1500);
+};
+$('modal').addEventListener('click',e=>{if(e.target.id==='modal')$('modal').classList.remove('show')});
+selectModel(0);
+</script>
+</body>
+</html>
